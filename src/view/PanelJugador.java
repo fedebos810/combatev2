@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Notebook
@@ -89,8 +91,12 @@ public class PanelJugador extends javax.swing.JFrame {
                 new PanelJugador().setVisible(true);
             }
         });
+        
     }
-
+    public static void MostrarEstado()
+    {
+        //jPanel1.setLayout(flowcito);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

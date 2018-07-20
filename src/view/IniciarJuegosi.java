@@ -168,10 +168,12 @@ public class IniciarJuegosi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            MapaMundoInterfaz.MostrarGUI();
-            PanelJugador.MostrarGUI();
-            JuegoCombate.agregarTerritorios(18);
             setVisible(false);
+            MapaMundoInterfaz.MostrarGUI(this);
+            PanelJugador.MostrarGUI();
+            juego1.agregarTerritorios(18);
+            juego1.EstadoJuego();
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -198,7 +200,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
         String name =jTextField1.getText();
                 if (!name.equals(""))
                 {
-                boolean added =  JuegoCombate.agregarJugador(name);
+                boolean added =  juego1.agregarJugador(name);
                 if(added == true)
                System.out.println(name + " added.");
                     
@@ -209,7 +211,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
         String name =jTextField2.getText();
                 if (!name.equals(""))
                 {
-                boolean added =  JuegoCombate.agregarJugador(name);
+                boolean added =  juego1.agregarJugador(name);
                 if(added == true)
                System.out.println(name + " added.");
                  }
@@ -219,7 +221,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
         String name =jTextField3.getText();
                 if (!name.equals(""))
                 {
-                boolean added =  JuegoCombate.agregarJugador(name);
+                boolean added =  juego1.agregarJugador(name);
                 if(added == true)
                System.out.println(name + " added.");
                  }
@@ -229,7 +231,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
         String name =jTextField4.getText();
                 if (!name.equals(""))
                 {
-                boolean added =  JuegoCombate.agregarJugador(name);
+                boolean added =  juego1.agregarJugador(name);
                 if(added == true)
                System.out.println(name + " added.");                  
                  }
@@ -275,6 +277,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
         });
     }
 
+    public JuegoCombate juego1 = new JuegoCombate();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

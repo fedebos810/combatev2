@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 
@@ -40,25 +41,26 @@ public class JuegoCombate
         //public Vector<Tarjeta> cubierta = new Vector<Tarjeta>();
         public Jugador curPlayer;
         public Jugador defender;
-        public Jugador active;
-
-        static private int estadoDeJuego;
+        
+        public Jugador activo;
+        private int estado;
         public Territorio aTerritorio;
         public Territorio dTerritorio;
         public int defNum = 0;
         public int attNum = 0;
         public int iter = 0;
         public boolean drawn;
+       
 
-    static public boolean agregarJugador(String nm){
+    public boolean agregarJugador(String nm){
             int size = jugadores.size();
-            if (size > 4)
+            if (size >= 4)
                 return false;
             Jugador p = new Jugador(nm, size);
             jugadores.add(p);
                 return true;
         }
-    static public boolean agregarTerritorios(int cantidad){
+    public boolean agregarTerritorios(int cantidad){
             int cl;
         
             for(int i=1 ; i<=cantidad; i++)
@@ -81,11 +83,51 @@ public class JuegoCombate
         }
         return true;
     }
-    static public void EstadoJuego()
+    public void EstadoJuego()
     {
         for(int i=0;i<15;i++)
-        {
+        {   
+            estado=i;
+            if(i==0)
+            {
+               JOptionPane.showMessageDialog(null,"Cada Jugador debera agregar 5 ejercitos"); 
+            }
+            for(Jugador jug : jugadores)
+            {
+                activo=jug;
+                JOptionPane.showMessageDialog(null,"Jugador "+jug.getNombre()+" tu turno");
+                
+            }
             
+        
         }
     }
+
+   public void Jugando(int idterritorio)
+   {
+        switch(estado) 
+        {
+	case 0:
+		//poner 10 fichas
+	break;
+	case 1:
+		//ponen 5 fichas
+	break;
+	case 2:				
+		//atacan
+	break;
+	case 3:
+		//ponen fichas de acuerdo a sus territorios
+	break;
+	case 4:
+		//chequear jugadores vivos
+	break;		
+	case 5:
+		//calcule ejercitos para cada jugadores
+	break;		
+	default:
+		//no hacer nada
+	break;
+	}
+    }   
 }

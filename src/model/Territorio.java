@@ -23,8 +23,6 @@ public class Territorio
 		//continente = c;
 		ejercitos = 0; //empieza vacio
 		limitrofes = new int[cl];//cantidad de paises limitrofes
-                //x = xloc;
-                //y = yloc;
                 jugador = new Jugador(null,-1);
 	}
 	
@@ -39,14 +37,6 @@ public class Territorio
 	public void setEjercito(int a){
 		ejercitos = a;
 	}
-
-        public int getX(){
-            return x;
-        }
-
-        public int getY(){
-            return y;
-        }
 	
 	public int getId(){
 		return id;
