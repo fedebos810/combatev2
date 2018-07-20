@@ -81,4 +81,11 @@ public class JuegoCombate
         }
         return true;
     }
+    static public void EstadoJuego()
+    {
+        for(int i=0;i<15;i++)
+        {
+            
+        }
+    }
 }

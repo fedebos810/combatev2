@@ -169,6 +169,7 @@ public class IniciarJuegosi extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             MapaMundoInterfaz.MostrarGUI();
+            PanelJugador.MostrarGUI();
             JuegoCombate.agregarTerritorios(18);
             setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
