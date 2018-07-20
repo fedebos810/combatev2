@@ -5,11 +5,14 @@
  */
 package view;
 
+import java.util.ArrayList;
+import model.Territorio;
+
 /**
  *
  * @author Notebook
  */
-public class MapaMundoInterfaz extends javax.swing.JFrame {
+public class MapaMundoInterfaz  extends javax.swing.JFrame implements Observer {
     
     IniciarJuegosi ijs;
     /**
@@ -649,4 +652,29 @@ public class MapaMundoInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel uruguay;
     private javax.swing.JPanel yukon;
     // End of variables declaration//GEN-END:variables
+//lo que hace el update es asignarle a cada boton la info del territorio que necesite
+    @Override
+    public void update(ArrayList <Territorio> territorios) {
+
+		jButton1.setText(String.valueOf(territorios.get(1).getEjercitos()));
+		jButton10.setText(String.valueOf(territorios.get(10).getEjercitos()));
+		jButton11.setText(String.valueOf(territorios.get(11).getEjercitos()));
+		jButton12.setText(String.valueOf(territorios.get(12).getEjercitos()));
+		jButton13.setText(String.valueOf(territorios.get(13).getEjercitos()));
+        jButton14.setText(String.valueOf(territorios.get(14).getEjercitos()));
+        jButton15.setText(String.valueOf(territorios.get(15).getEjercitos()));
+        jButton16.setText(String.valueOf(territorios.get(16).getEjercitos()));
+        jButton17.setText(String.valueOf(territorios.get(17).getEjercitos()));
+        jButton18.setText(String.valueOf(territorios.get(18).getEjercitos()));
+        jButton2.setText(String.valueOf(territorios.get(2).getEjercitos()));
+        jButton3.setText(String.valueOf(territorios.get(3).getEjercitos()));
+        jButton4.setText(String.valueOf(territorios.get(4).getEjercitos()));
+        jButton5.setText(String.valueOf(territorios.get(5).getEjercitos()));
+        jButton6.setText(String.valueOf(territorios.get(6).getEjercitos()));
+        jButton7.setText(String.valueOf(territorios.get(7).getEjercitos()));
+        jButton8.setText(String.valueOf(territorios.get(8).getEjercitos()));
+        jButton9.setText(String.valueOf(territorios.get(9).getEjercitos()));
+		
+				
+     }
 }

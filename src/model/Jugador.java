@@ -65,9 +65,6 @@ public class Jugador {
             return tarjetas;
         }
 */	
-	public void addArmies(int a){
-		ejercitos += a;
-	}
 
         public void añadirEjercitos(){
             ejercitos++;

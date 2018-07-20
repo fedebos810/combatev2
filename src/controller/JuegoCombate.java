@@ -11,10 +11,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import view.Observer;
 
 
 
-public class JuegoCombate 
+public class JuegoCombate implements Subject
 {
         //ESTADOS DEL JUEGO
         public static final int JUEGO_NUEVO = 0;
@@ -36,9 +37,8 @@ public class JuegoCombate
          public static final int GAME_OVER = 99;
 
 	static public ArrayList<Territorio> territorios  = new ArrayList<Territorio>();
-	//public ArrayList<Continente> continentes = new ArrayList<>();
         static public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-        //public Vector<Tarjeta> cubierta = new Vector<Tarjeta>();
+        static public ArrayList<Observer> observadores  = new ArrayList<Observer>();
         public Jugador curPlayer;
         public Jugador defender;
         
@@ -79,36 +79,50 @@ public class JuegoCombate
             System.out.println("Excepcion leyendo fichero "+ cl + ": " + e);
             }*/
             Territorio t = new Territorio(i,cl);
-            territorios.add(t);      
+            territorios.add(t);
+            t.setEjercito(i);
         }
         return true;
     }
     public void EstadoJuego()
     {
-        for(int i=0;i<15;i++)
+        for(int i=0;i<6;i++)
         {   
             estado=i;
             if(i==0)
             {
-               JOptionPane.showMessageDialog(null,"Cada Jugador debera agregar 5 ejercitos"); 
+               JOptionPane.showMessageDialog(null,"Binvenido a Combate - Cada Jugador debera agregar 5 ejercitos"); 
             }
-            for(Jugador jug : jugadores)
-            {
-                activo=jug;
-                JOptionPane.showMessageDialog(null,"Jugador "+jug.getNombre()+" tu turno");
-                
-            }
+            
+            
             
         
         }
+        
+        for(Jugador jug : jugadores)
+            {
+                activo=jug;
+                JOptionPane.showMessageDialog(null,"Jugador "+jug.getNombre()+" tu turno");
+                while(jug.getNumeroDeEjercitos()<=2)
+                {
+                    
+                    //System.out.printf("faltan agregar territorios");;
+                }
+                
+            }
     }
 
-   public void Jugando(int idterritorio)
+    public void Jugando(int idterritorio)
    {
         switch(estado) 
         {
 	case 0:
-		//poner 10 fichas
+	activo.añadirEjercitos();
+        territorios.get(idterritorio).setEjercito(1);
+        territorios.get(idterritorio).setJugador(activo);
+        System.out.printf("ESTADO 0");//poner 10 fichas
+        
+       
 	break;
 	case 1:
 		//ponen 5 fichas
@@ -124,10 +138,30 @@ public class JuegoCombate
 	break;		
 	case 5:
 		//calcule ejercitos para cada jugadores
-	break;		
+	break;
+        case 6:
+        break; // estado de fin de 
 	default:
 		//no hacer nada
 	break;
 	}
     }   
+
+    @Override
+    public void registerObserver(Observer o) {
+        observadores.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observadores.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer observador : observadores)
+        {
+            observador.update(territorios);
+        }
+    }
 }
