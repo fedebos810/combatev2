@@ -22,7 +22,7 @@ public class Continente
 		territorios = t;
 	}
 	
-	public String getName(){
+	public String getNombre(){
 		return nombre;
 	}
 	
@@ -38,17 +38,4 @@ public class Continente
 		return (territorios.contains(t.getId()));
 	}
 	
-	/*public boolean esContinenteCapturado(Player p){
-		ArrayList<Integer> t1 = new ArrayList<Integer>();
-		//ArrayList<Territorio> t2 = p.getOccupiedTerritories();
-                
-		for (int c = 0; c < t2.size(); c++)
-			t1.add(t2.elementAt(c).getId());              
-		for (int i = 0; i < territorios.size(); i++){
-                    if(!t1.contains(territorios.elementAt(i)))
-			return false;
-		}//end for loop		
-	return true; 
-	}
-*/
 }

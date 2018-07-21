@@ -9,10 +9,7 @@ public class Jugador {
 	private String nombre;
 	private int indice;
         private ArrayList<Territorio> territoriosOcupados;
-	//Cards might be here
-	//private Vector<Tarjeta> tarjetas;
 	private int ejercitos;
-	//private int territoriesCaptured; //Same as occupiedTerritories.size()
 
 	
 	public Jugador(String nm, int i) 
@@ -20,7 +17,7 @@ public class Jugador {
 		nombre = nm;
 		indice = i;
 		territoriosOcupados = new ArrayList<Territorio>();
-                //tarjetas = new Vector<Tarjeta>();
+                
 	}
 	
 	public int getIndiceJugador(){
@@ -34,11 +31,6 @@ public class Jugador {
 	public int getNumeroDeEjercitos(){
 		return ejercitos;
 	}
-	
-/*	public Vector getTarjetas(){
-		return tarjetasPoseidas;
-	} */
-
    
     public ArrayList<Territorio> getTerritoriosOcupados(){
 		return territoriosOcupados;
@@ -56,22 +48,9 @@ public class Jugador {
 		territoriosOcupados.remove(t);
 		territoriosOcupados.trimToSize();
 	}
-/*
-        public void setTarjeta(Tarjeta c){
-            tarjetas.add(c);
-        }
-
-        public Vector<Tarjeta> getTarjeta(){
-            return tarjetas;
-        }
-*/	
 
         public void añadirEjercitos(){
             ejercitos++;
-        }
-
-        public void ejercitosPerdidos(int a){
-            ejercitos -= a;
         }
         
         public void ejercitoPerdido(){
